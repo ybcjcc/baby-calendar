@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  dev:
+    build:
+      context: .
+      target: builder
+    command: npm run dev -- --host
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+
+  prod:
+    build: .
+    ports:
+      - "80:80"
+    restart: always
