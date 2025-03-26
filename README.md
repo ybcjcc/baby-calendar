@@ -6,114 +6,115 @@
 ## 核心功能
 
 👶 宝宝头像与名称设置  
-📅 交互式孕期日历  
-📈 实时孕周进度跟踪  
-💡 胎儿发育阶段信息展示  
+📅 交互式孕期日历
+- 可视化日期选择
+- 孕期重要日期标记
+- 灵活的日期导航
+
+📈 实时孕周进度跟踪
+- 精确的孕周计算
+- 进度条可视化
+- 剩余天数提醒
+
+💡 胎儿发育阶段信息展示
+- 每周胎儿大小和体重变化
+- 详细的发育里程碑
+- 分阶段发育特征说明
+
+🏥 产检提醒功能
+- 产检日程管理
+- 检查项目提醒
+- 重要日期标记
+
+📚 孕期知识百科
+- 营养知识指导
+- 运动建议
+- 生活方式调整
+- 心理健康关注
+
 📱 响应式移动端适配
+- 支持多种设备访问
+- 触摸友好的交互设计
+- 自适应布局
 
 ## 技术栈
 
-- 前端框架: React 18 + TypeScript
-- 构建工具: Vite 5
-- UI组件库: Chakra UI 3
-- 日期处理: Day.js 1.11
-- 代码规范: ESLint + Prettier
-- 容器化: Docker 20 + docker-compose
+### 前端框架
+- React 18 + TypeScript - 主框架
+- Vite 5 - 构建工具
+- Chakra UI 3 - UI组件库
+- Day.js 1.11 - 日期处理
 
-## 本地运行
+### 开发工具
+- ESLint + Prettier - 代码规范
+- TypeScript - 类型检查
+- Docker + docker-compose - 容器化部署
+
+## 本地开发
 
 ### 环境要求
 - Node.js 18+
 - npm 9+
 
+### 安装步骤
+
+1. 克隆项目
 ```bash
-# 安装依赖
+git clone <repository-url>
+cd baby
+```
+
+2. 安装依赖
+```bash
 npm install
+```
 
-# 启动开发服务器
+3. 启动开发服务器
+```bash
 npm run dev
+```
 
-# 构建生产版本
+4. 构建生产版本
+```bash
 npm run build
 ```
 
 ## Docker部署
 
+1. 构建镜像
 ```bash
-# 构建镜像
 docker-compose build
+```
 
-# 启动服务
+2. 启动服务
+```bash
 docker-compose up -d
-
-访问 http://localhost:8080
 ```
 
-## 开发规范
-1. 组件使用函数式组件+TypeScript
-2. 样式优先使用Chakra UI原子化方案
-3. 提交信息遵循Angular Commit Message规范
-4. 主分支保护策略：开发通过feature分支提交PR
-
-## 配置文件说明
-- `.env` 环境变量配置
-- `theme.ts` UI主题配置
-- `fetalDevelopment.ts` 胎儿发育数据源
-
----
-
-# React + TypeScript + Vite
-
-（保留原始模板说明）
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+3. 访问应用
+```
+http://localhost:8080
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 项目结构
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+src/
+  ├── components/     # React组件
+  ├── data/          # 静态数据
+  ├── assets/        # 静态资源
+  ├── theme.ts       # 主题配置
+  └── App.tsx        # 应用入口
+```
+
+## 贡献指南
+
+1. Fork 项目
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 提交 Pull Request
+
+## 开源协议
+
+本项目采用 MIT 协议 - 详见 [LICENSE](LICENSE) 文件

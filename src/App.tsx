@@ -1,39 +1,65 @@
-import { Box, Container, Flex, VStack } from '@chakra-ui/react';
+import { Box, Container, Flex, VStack, Tabs, TabList, Tab, TabPanels, TabPanel } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
 import Calendar from './components/Calendar';
 import PregnancyProgress from './components/PregnancyProgress';
 import PregnancyInfo from './components/PregnancyInfo';
 import Header from './components/Header';
+import Encyclopedia from './components/Encyclopedia';
+import CheckupReminder from './components/CheckupReminder';
+import WeeklyChanges from './components/WeeklyChanges';
 
 function App() {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [dueDate, setDueDate] = useState<Date>(() => {
-  const savedDueDate = localStorage.getItem('dueDate');
-  return savedDueDate ? dayjs(savedDueDate).toDate() : dayjs().add(280, 'day').toDate();
-});
+    const savedDueDate = localStorage.getItem('dueDate');
+    return savedDueDate ? dayjs(savedDueDate).toDate() : dayjs().add(280, 'day').toDate();
+  });
 
-useEffect(() => {
-  localStorage.setItem('dueDate', dayjs(dueDate).toISOString());
-}, [dueDate]);
+  useEffect(() => {
+    localStorage.setItem('dueDate', dayjs(dueDate).toISOString());
+  }, [dueDate]);
 
   return (
     <Container maxW="container.xl" px={{ base: 4, md: 8 }}>
       <Header />
       <Box py={{ base: 4, md: 8 }}>
-        <Flex gap={{ base: 4, md: 8 }} direction={{ base: 'column', lg: 'row' }}>
-          <Box flex={{ base: 'auto', lg: 2 }} w="100%">
-            <Calendar 
-              selectedDate={selectedDate} 
-              onDateSelect={setSelectedDate}
-              pregnancyStartDate={dayjs(dueDate).subtract(280, 'day').toDate()}
-            />
-          </Box>
-          <VStack flex={{ base: 'auto', lg: 1 }} w="100%" spacing={{ base: 4, md: 8 }} align="stretch">
-            <PregnancyProgress dueDate={dueDate} selectedDate={selectedDate} onDueDateChange={setDueDate} />
-            <PregnancyInfo selectedDate={selectedDate} dueDate={dueDate} />
-          </VStack>
-        </Flex>
+        <Tabs>
+          <TabList>
+            <Tab>日历</Tab>
+            <Tab>变化</Tab>
+            <Tab>孕期百科</Tab>
+            <Tab>产检提醒</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel p={0} pt={4}>
+              <Flex gap={{ base: 4, md: 8 }} direction={{ base: 'column', lg: 'row' }}>
+                <Box flex={{ base: 'auto', lg: 2 }} w="100%">
+                  <Calendar 
+                    selectedDate={selectedDate} 
+                    onDateSelect={setSelectedDate}
+                    pregnancyStartDate={dayjs(dueDate).subtract(280, 'day').toDate()}
+                  />
+                </Box>
+                <VStack flex={{ base: 'auto', lg: 1 }} w="100%" spacing={{ base: 4, md: 8 }} align="stretch">
+                  <PregnancyProgress dueDate={dueDate} selectedDate={selectedDate} onDueDateChange={setDueDate} />
+                  <Box>
+                    <PregnancyInfo selectedDate={selectedDate} dueDate={dueDate} />
+                  </Box>
+                </VStack>
+              </Flex>
+            </TabPanel>
+            <TabPanel p={0} pt={4}>
+              <WeeklyChanges selectedDate={selectedDate} dueDate={dueDate} />
+            </TabPanel>
+            <TabPanel p={0} pt={4}>
+              <Encyclopedia />
+            </TabPanel>
+            <TabPanel p={0} pt={4}>
+              <CheckupReminder selectedDate={selectedDate} dueDate={dueDate} />
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
       </Box>
     </Container>
   );
