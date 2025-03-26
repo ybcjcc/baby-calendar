@@ -117,7 +117,7 @@ const PregnancyInfo = ({ selectedDate, dueDate = dayjs().add(280, 'day').toDate(
         </CardBody>
       </Card>
 
-      <Card width="100%">
+      {/* <Card width="100%">
         <CardHeader>
           <Heading size="md">孕期知识科普</Heading>
         </CardHeader>
@@ -173,9 +173,9 @@ const PregnancyInfo = ({ selectedDate, dueDate = dayjs().add(280, 'day').toDate(
             </TabPanels>
           </Tabs>
         </CardBody>
-      </Card>
+      </Card> */}
 
-      <Card width="100%">
+      {/* <Card width="100%">
         <CardHeader>
           <Heading size="md">产检提醒</Heading>
         </CardHeader>
@@ -198,7 +198,7 @@ const PregnancyInfo = ({ selectedDate, dueDate = dayjs().add(280, 'day').toDate(
             </Box>
           </VStack>
         </CardBody>
-      </Card>
+      </Card> */}
     </VStack>
   );
 };
