@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Encyclopedia from './components/Encyclopedia';
 import CheckupReminder from './components/CheckupReminder';
 import WeeklyChanges from './components/WeeklyChanges';
+import DietAndExercise from './components/DietAndExercise';
 
 function App() {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
@@ -30,6 +31,7 @@ function App() {
             <Tab>变化</Tab>
             <Tab>孕期百科</Tab>
             <Tab>产检提醒</Tab>
+            <Tab>膳食与运动</Tab>
           </TabList>
           <TabPanels>
             <TabPanel p={0} pt={4}>
@@ -57,6 +59,9 @@ function App() {
             </TabPanel>
             <TabPanel p={0} pt={4}>
               <CheckupReminder selectedDate={selectedDate} dueDate={dueDate} />
+            </TabPanel>
+            <TabPanel p={0} pt={4}>
+              <DietAndExercise />
             </TabPanel>
           </TabPanels>
         </Tabs>
