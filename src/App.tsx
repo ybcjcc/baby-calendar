@@ -14,7 +14,7 @@ function App() {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [dueDate, setDueDate] = useState<Date>(() => {
     const savedDueDate = localStorage.getItem('dueDate');
-    return savedDueDate ? dayjs(savedDueDate).toDate() : dayjs().add(280, 'day').toDate();
+    return savedDueDate ? dayjs(savedDueDate).toDate() : dayjs('2025-11-27').toDate();
   });
 
   useEffect(() => {
