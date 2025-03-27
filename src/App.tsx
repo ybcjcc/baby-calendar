@@ -1,4 +1,5 @@
 import { Box, Container, Flex, VStack, Tabs, TabList, Tab, TabPanels, TabPanel } from '@chakra-ui/react';
+import Guide from './components/Guide';
 import { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
 import Calendar from './components/Calendar';
@@ -32,6 +33,7 @@ function App() {
             <Tab>孕期百科</Tab>
             <Tab>产检提醒</Tab>
             <Tab>膳食与运动</Tab>
+            <Tab>孕期指南</Tab>
           </TabList>
           <TabPanels>
             <TabPanel p={0} pt={4}>
@@ -62,6 +64,9 @@ function App() {
             </TabPanel>
             <TabPanel p={0} pt={4}>
               <DietAndExercise />
+            </TabPanel>
+            <TabPanel p={0} pt={4}>
+              <Guide />
             </TabPanel>
           </TabPanels>
         </Tabs>
